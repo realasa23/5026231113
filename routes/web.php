@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\pegawaiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Route::get('halo', function () {
-//     return "<h2>Halu, Selamat datang di  tutorial laravel www.malas ngoding.com</h2>";
-// });
-// Route::get('blog', function () {
-//     return view('blog');//gaada file jd ga ke run
-// });
-// Route::get('hello', [Link::class,'helloword']);
+Route::get('halo', function () {
+    return "<h2>Halu, Selamat datang di  tutorial laravel www.malas ngoding.com</h2>";
+});
+Route::get('blog', function () {
+    return view('blog');//gaada file jd ga ke run
+});
+Route::get('hello', [Link::class,'helloword']);
+
 Route::get('/frontend', function () {
     return view('frontend');
 });
@@ -63,3 +66,8 @@ Route::get('/soal4', function () {
 Route::get('/template', function () {
     return view('template');
 });
+route ::get ('dosen', [link :: class, 'index']);
+route ::get ('/pegawai/{nama}', [pegawaiController :: class, 'index']);
+route ::get ('/formulir', [pegawaiController :: class, 'formulir']);
+Route::post('/formulir/proses', [pegawaiController::class, 'proses']);
+
