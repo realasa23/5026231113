@@ -1,105 +1,141 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Link ;
-use App\Http\Controllers\PegawaiController ;
-use App\Http\Controllers\Pegawai2Controller ;
-use App\Http\Controllers\BlogController ;
-// import java.io;
+use App\Http\Controllers\Coba;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Pegawai2Controller;
+//sama dengan import java.io.*
 
-// System.out.print();
-// Disini pakai ::
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
-Route::get('/', function () { // internal controller
+//system.out.println();
+//Route.get();
+
+Route::get('/', function () {
     return view('welcome');
 });
 
+//simple
+Route::get('/selamat', function () {
+    return view('welcome');
+});
+
+//view code
 Route::get('halo', function () {
-	return "<h2>Halo, Selamat datang di tutorial laravel www.malasngoding.com</h2>";
+	return "<h1> Halo, Selamat datang di tutorial laravel www.malasngoding.com </h1>";
 });
 
 Route::get('blog', function () {
-	return view('blog'); // tidak ada underline karena belum ada filenya
+	return view('blog');
 });
 
-Route::get('hello', [Link::class, 'helloword']); // menggunakan controller
+//controller
+Route::get('hello', [Coba::class, 'helloword']);
+//Route::get('hello', 'App\Http\Controllers\Coba@helloworld');
 
+//namafile boleh sama dgn asli atau beda
 Route::get('pertama', function () {
 	return view('pertama');
 });
 
-Route::get('bootstrap1', function () {
-	return view('bootstrap1');
+
+//route kumpulan tugas
+Route::get('frontend', function () {
+	return view('frontend');
 });
 
+//route untuk file tugas hingga ets
+//pt 1
+Route::get('pertama', function () {
+	return view('pertama');
+});
+
+//latihan pt2 diedit langsung di file pt1
+
+//3
+Route::get('bootsrap1', function () {
+	return view('bootsrap1');
+});
+
+Route::get('bootsrap2', function () {
+	return view('bootsrap2');
+});
+
+//pt 4
+Route::get('latihan', function () {
+	return view('latihan');
+});
+
+//tugas linktree pt 5
+Route::get('indahkus', function () {
+	return view('indahkus');
+});
+
+//pt 7
 Route::get('js1', function () {
-    return view('js1');
+	return view('js1');
 });
 
 Route::get('js2', function () {
-    return view('js2');
+	return view('js2');
 });
 
-Route::get('LatihanLayoutPR', function () {
-    return view('LatihanLayoutPR');
+//ets
+Route::get('ets', function () {
+	return view('ets');
 });
 
-Route::get('LatihanLayout', function () {
-    return view('LatihanLayout');
-});
+//4
+Route::get('dosen', [Coba::class, 'index']);
 
-Route::get('template1', function () {
-    return view('template1');
-});
+//5
+//Route::get('/pegawai/{nama}', [PegawaiController::class, 'index'] );
 
-Route::get('tugaslinktree', function () {
-    return view('tugaslinktree');
-});
+//menangkap data dari inputan
 
-Route::get('Latihan ETS', function () {
-    return view('indexlatihanets');
-});
+//halaman isian formulir
+Route::get('/formulir', [PegawaiController::class, 'formulir']);
+//action form : redirect
+Route::post('/formulir/proses', [PegawaiController::class, 'proses']);
 
-Route::get('contact', function () {
-    return view('contact');
-});
-
-Route::get('ETS', function () {
-    return view('indexets');
-});
-
-Route::get('projects', function () {
-    return view('projects');
-});
-
-Route::get('resume', function () {
-    return view('resume');
-});
-
-Route::get('frontend', function () {
-    return view('frontend');
-});
-
-Route::get('linkfe', function () {
-    return view('linkfe');
-});
-
-
-Route::get('dosen', [Link::class, 'index']);
-
-//Route::get('/pegawai/{nama}', [Pegawai2Controller::class, 'index']);
-Route::get('/formulir', [Pegawai2Controller::class, 'formulir']);
-Route::post('/formulir/proses', [Pegawai2Controller::class, 'proses']);
-
+//8
 // route blog
-Route::get('/blog',  [BlogController::class, 'home']);
-Route::get('/blog/tentang', [BlogController::class, 'tentang']);
-Route::get('/blog/kontak', [BlogController::class, 'kontak']);
+Route::get('/blog', [BlogController::class,'home']);
+Route::get('/blog/tentang', [BlogController::class,'tentang']);
+Route::get('/blog/kontak', [BlogController::class,'kontak']);
 
-//crud pegawai
-Route::get('/pegawai', [PegawaiController::class, 'index']);
-Route::get('/pegawai/tambah', [PegawaiController::class,'tambah'] );
-Route::post('/pegawai/store', [PegawaiController::class,'store'] );
-Route::get('/pegawai/edit/{id}', [PegawaiController::class,'edit'] );
-Route::post('/pegawai/update', [PegawaiController::class,'update'] );
-Route::get('/pegawai/hapus/{id}', [PegawaiController::class,'hapus'] );
+//9
+//route CRUD
+Route::get('/pegawai',[PegawaiController::class, 'index']);
+
+//10
+//route pegawai tambah
+Route::get('/pegawai/tambah', [PegawaiController::class, 'tambah']);
+
+//route pegawai store
+Route::post('/pegawai/store', [PegawaiController:: class, 'store']);
+
+//11
+//data id
+Route::get('/pegawai/edit/{id}', [PegawaiController::class, 'edit']);
+//update
+Route::post('/pegawai/update', [PegawaiController:: class, 'update']);
+
+//12
+//hapus
+Route::get('/pegawai/hapus/{id}', [PegawaiController:: class, 'hapus']);
+
+//16
+//cari
+Route::get('/pegawai/cari', [PegawaiController:: class, 'cari']);
