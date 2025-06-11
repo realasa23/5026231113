@@ -7,6 +7,7 @@ use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Pegawai2Controller;
 use App\Http\Controllers\controllerm;
+use App\Http\Controllers\keranjangbelanjaController;
 //sama dengan import java.io.*
 
 /*
@@ -156,3 +157,10 @@ Route::post('/mobil/update', [controllerm::class,'update'] );
 Route::get('/mobil/hapus/{id}', [controllerm::class,'hapus'] );
 
 Route::get('/mobil/cari', [controllerm::class,'cari'] );
+
+Route::get('/keranjangbelanja', [keranjangbelanjaController::class, 'index']);
+Route::get('/keranjangbelanja/tambah', [keranjangbelanjaController::class, 'tambah']);
+Route::post('/keranjangbelanja/store', [keranjangbelanjaController::class, 'store']);
+Route::post('/keranjangbelanja/update', [keranjangbelanjaController::class, 'update']);
+Route::get('/keranjangbelanja/hapus/{id}', [keranjangbelanjaController::class, 'hapus']);
+Route::get('/keranjangbelanja/cari', [keranjangbelanjaController::class, 'cari']);

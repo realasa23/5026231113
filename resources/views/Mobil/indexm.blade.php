@@ -43,25 +43,3 @@
 	</table>
 {{ $mobil->links() }}
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
