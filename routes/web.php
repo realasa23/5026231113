@@ -6,6 +6,7 @@ use App\Http\Controllers\Coba;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Pegawai2Controller;
+use App\Http\Controllers\controllerm;
 //sama dengan import java.io.*
 
 /*
@@ -139,3 +140,19 @@ Route::get('/pegawai/hapus/{id}', [PegawaiController:: class, 'hapus']);
 //16
 //cari
 Route::get('/pegawai/cari', [PegawaiController:: class, 'cari']);
+
+
+//crud mobil
+Route::get('/mobil', [controllerm::class,'index'] );
+
+Route::get('/mobil/tambah', [controllerm::class,'tambah'] );
+
+Route::post('/mobil/store', [controllerm::class,'store'] );
+
+Route::get('/mobil/edit/{id}', [controllerm::class,'edit'] );
+
+Route::post('/mobil/update', [controllerm::class,'update'] );
+
+Route::get('/mobil/hapus/{id}', [controllerm::class,'hapus'] );
+
+Route::get('/mobil/cari', [controllerm::class,'cari'] );

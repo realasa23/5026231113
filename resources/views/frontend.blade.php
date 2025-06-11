@@ -34,6 +34,7 @@
                     <a href="{{ url('/pertama') }}" class="btn btn-outline-secondary m-2" target="_blank">Pertama</a>
                     <a href="{{ url('/soal4') }}" class="btn btn-outline-secondary m-2" target="_blank">Soal 4</a>
                     <a href="{{ url('/template') }}" class="btn btn-outline-secondary m-2" target="_blank">Template</a>
+                    <a href="{{ url('/latets') }}" class="btn btn-outline-secondary m-2" target="_blank">latihanets</a>
                 </div>
             </div>
         </div>

@@ -1,59 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Realasa Femmi Novelika : 5026231113</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap & Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <style>
         .jumbotron {
-            background-color: #ffbccb;
-            height: 100px;
+            background: linear-gradient(135deg, #f9a8d4, #fbcfe8);
+            color: #4b0c2a;
+            height: 120px;
+            padding: 20px;
+        }
+        .navbar-custom {
+            background-color: #f8d7da;
+        }
+        .navbar-custom .nav-link {
+            color: #66101f;
+            font-weight: 500;
+        }
+        .navbar-custom .nav-link:hover {
+            background-color: #f1b0b7;
+            border-radius: 5px;
         }
     </style>
 </head>
 
 <body>
-    <div class="jumbotron text-center mx-auto">
-        <h1>Realasa Femmi Novelika : 5026231113</h1>
+    <div class="jumbotron text-center">
+        <h2>Realasa Femmi Novelika : 5026231113</h2>
     </div>
 
-    <nav class="navbar navbar-expand-sm bg-light">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">All Front End</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/pegawai">Pegawai</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Tugas CRUD</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">EAS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Latihan 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Latihan 2</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Latihan 3</a>
-            </li>
-        </ul>
-    </nav>
-    <br>
-    <div class="container">
+    @include('navbar')
+
+    <div class="container mt-4">
         @yield('content')
     </div>
 
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
