@@ -9,6 +9,7 @@ use App\Http\Controllers\Pegawai2Controller;
 use App\Http\Controllers\controllerm;
 use App\Http\Controllers\keranjangbelanjaController;
 use App\Http\Controllers\karyawanController ;
+use App\Http\Controllers\Karyawan2Controller;
 
 //sama dengan import java.io.*
 
@@ -171,3 +172,16 @@ Route::get('/karyawan', [KaryawanController::class,   'index']);
 Route::get('/karyawan/tambah',[KaryawanController::class, 'tambah']);
 Route::post('/karyawan/store',[KaryawanController::class, 'store']);
 Route::get('/karyawan/hapus/{id}',[KaryawanController::class, 'hapus']);
+
+
+Route::get('/karyawan', [KaryawanController::class, 'index']);
+Route::get('/karyawan/tambah', [KaryawanController::class, 'tambah']);
+Route::post('/karyawan/store', [KaryawanController::class, 'store']);
+Route::get('/karyawan/hapus/{id}', [KaryawanController::class, 'hapus']);
+Route::get('/karyawan/cari', [KaryawanController::class, 'cari']);
+
+Route::get('/karyawan', [Karyawan2Controller::class, 'index']);
+Route::get('/karyawan/tambah', [Karyawan2Controller::class, 'tambah']);
+Route::post('/karyawan/store', [Karyawan2Controller::class, 'store']);
+Route::get('/karyawan/hapus/{id}', [Karyawan2Controller::class, 'hapus']);
+Route::get('/karyawan/cari', [Karyawan2Controller::class, 'cari']);
