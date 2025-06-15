@@ -8,6 +8,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Pegawai2Controller;
 use App\Http\Controllers\controllerm;
 use App\Http\Controllers\keranjangbelanjaController;
+use App\Http\Controllers\karyawanController ;
+
 //sama dengan import java.io.*
 
 /*
@@ -163,4 +165,9 @@ Route::get('/keranjangbelanja/tambah', [keranjangbelanjaController::class, 'tamb
 Route::post('/keranjangbelanja/store', [keranjangbelanjaController::class, 'store']);
 Route::post('/keranjangbelanja/update', [keranjangbelanjaController::class, 'update']);
 Route::get('/keranjangbelanja/hapus/{id}', [keranjangbelanjaController::class, 'hapus']);
-Route::get('/keranjangbelanja/cari', [keranjangbelanjaController::class, 'cari']);
+
+
+Route::get('/karyawan', [KaryawanController::class,   'index']);
+Route::get('/karyawan/tambah',[KaryawanController::class, 'tambah']);
+Route::post('/karyawan/store',[KaryawanController::class, 'store']);
+Route::get('/karyawan/hapus/{id}',[KaryawanController::class, 'hapus']);

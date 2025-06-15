@@ -23,14 +23,12 @@
         </tr>
         @foreach($keranjang as $r)
         <tr>
-            <td>{{ $r->id }}</td>
-            <td>{{ $r->kodebarang }}</td>
-            <td>{{ $r->jumlah }}</td>
-            <td>{{ $r->harga }}</td>
+            <td>{{ $r->ID }}</td>
+            <td>{{ $r->KodeBarang }}</td>
+            <td>{{ $r->Jumlah }}</td>
+            <td>{{ $r->Harga }}</td>
             <td>
-                <a href="/keranjangbelanja/edit/{{ $r->id }}" class="btn btn-success">Edit</a>
-                |
-                <a href="/keranjangbelanja/hapus/{{ $r->id }}" class="btn btn-danger">Hapus</a>
+                <a href="/keranjangbelanja/hapus/{{ $r->ID }}" class="btn btn-danger">Hapus</a>
             </td>
         </tr>
         @endforeach

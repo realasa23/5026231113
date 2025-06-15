@@ -9,13 +9,13 @@ class keranjangbelanjaController extends Controller
 {
     public function index()
     {
-        $keranjang = DB::table('blanja')->paginate(10);
-        return view('keranjangbelanja.index', ['keranjang' => $keranjang]);
+        $keranjang = DB::table('keranjangbelanja')->paginate(10);
+        return view('Keranjang belanja/index', ['keranjang' => $keranjang]);
     }
 
     public function tambah()
     {
-        return view('keranjangbelanja.tambah');
+        return view('keranjangbelanja/tambah');
     }
 
     public function store(Request $request)
@@ -26,7 +26,7 @@ class keranjangbelanjaController extends Controller
             'harga' => 'required|integer',
         ]);
 
-        DB::table('blanja')->insert([
+        DB::table('keranjangbelanja')->insert([
             'kodebarang' => $request->kodebarang,
             'jumlah' => $request->jumlah,
             'harga' => $request->harga
@@ -37,8 +37,8 @@ class keranjangbelanjaController extends Controller
 
     public function edit($id)
     {
-        $item = DB::table('blanja')->where('id', $id)->first();
-        return view('keranjangbelanja.edit', compact('item'));
+        $item = DB::table('keranjangbelanja')->where('ID', $id)->first();
+        return view('keranjangbelanja/edit', compact('item'));
     }
 
     public function update(Request $request)
@@ -49,7 +49,7 @@ class keranjangbelanjaController extends Controller
             'harga' => 'required|integer',
         ]);
 
-        DB::table('blanja')->where('id', $request->id)->update([
+        DB::table('keranjangbelanja')->where('ID', $request->id)->update([
             'kodebarang' => $request->kodebarang,
             'jumlah' => $request->jumlah,
             'harga' => $request->harga
@@ -60,7 +60,7 @@ class keranjangbelanjaController extends Controller
 
     public function hapus($id)
     {
-        DB::table('blanja')->where('id', $id)->delete();
+        DB::table('keranjangbelanja')->where('ID', $id)->delete();
         return redirect('/keranjangbelanja');
     }
 
@@ -68,13 +68,13 @@ class keranjangbelanjaController extends Controller
     {
         $cari = $request->cari;
 
-        $keranjang = DB::table('blanja')
+        $keranjang = DB::table('keranjangbelanja')
             ->where('kodebarang', 'like', "%$cari%")
             ->orWhere('jumlah', 'like', "%$cari%")
             ->orWhere('harga', 'like', "%$cari%")
             ->paginate(10)
             ->withQueryString();
 
-        return view('keranjangbelanja.index', ['keranjang' => $keranjang, 'cari' => $cari]);
+        return view('keranjangbelanja/index', ['keranjang' => $keranjang, 'cari' => $cari]);
     }
 }
