@@ -148,17 +148,11 @@ Route::get('/pegawai/cari', [PegawaiController:: class, 'cari']);
 
 //crud mobil
 Route::get('/mobil', [controllerm::class,'index'] );
-
 Route::get('/mobil/tambah', [controllerm::class,'tambah'] );
-
 Route::post('/mobil/store', [controllerm::class,'store'] );
-
 Route::get('/mobil/edit/{id}', [controllerm::class,'edit'] );
-
 Route::post('/mobil/update', [controllerm::class,'update'] );
-
 Route::get('/mobil/hapus/{id}', [controllerm::class,'hapus'] );
-
 Route::get('/mobil/cari', [controllerm::class,'cari'] );
 
 Route::get('/keranjangbelanja', [keranjangbelanjaController::class, 'index']);

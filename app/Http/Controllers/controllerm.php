@@ -12,7 +12,8 @@ class controllerm extends Controller
     	// mengambil data dari table pegawai
 		// $pegawai = DB::table('pegawai')->get(); //array all record
         $mobil = DB::table('mobil')->paginate(10); //kalau tanpa angka dalam kurung, defaultnya itu 15
-    	// mengirim data pegawai ke view index
+    	$this->logActivity();
+        // mengirim data pegawai ke view index
 		return view('mobil/indexm',['mobil' => $mobil]);
 
 	}
@@ -21,6 +22,7 @@ class controllerm extends Controller
 	public function tambah()
 	{
 
+$this->logActivity();
 		// memanggil view tambah
 		return view('mobil/tambahm');
 
@@ -36,7 +38,8 @@ class controllerm extends Controller
 			'mobil_tersedia' => $request->tersedia,
 			'mobil_berat' => $request->berat
 		]);
-		// alihkan halaman ke halaman pegawai
+		$this->logActivity();
+        // alihkan halaman ke halaman pegawai
 		return redirect('/mobil');
 
 	}
@@ -46,7 +49,8 @@ class controllerm extends Controller
 	{
 		// mengambil data pegawai berdasarkan id yang dipilih
 		$mobil = DB::table('mobil')->where('mobil_id',$id)->get();
-		// passing data pegawai yang didapat ke view edit.blade.php
+		 $this->logActivity();
+        // passing data pegawai yang didapat ke view edit.blade.php
 		return view('mobil/edit',['mobil' => $mobil]);
 
 	}
@@ -61,6 +65,7 @@ class controllerm extends Controller
 			'mobil_tersedia' => $request->tersedia,
 			'mobil_berat' => $request->berat
 		]);
+         $this->logActivity();
 		// alihkan halaman ke halaman pegawai
 		return redirect('/mobil');
 	}
@@ -70,7 +75,7 @@ class controllerm extends Controller
 	{
 		// menghapus data pegawai berdasarkan id yang dipilih
 		DB::table('mobil')->where('mobil_id',$id)->delete();
-
+         $this->logActivity();
 		// alihkan halaman ke halaman pegawai
 		return redirect('/mobil');
 	}
@@ -88,6 +93,24 @@ class controllerm extends Controller
             ->paginate();
 
         // mengirim data mobil ke view index3
+        $this->logActivity();
         return view('mobil/indexm', ['mobil' => $mobil, 'cari' => $cari]);
+
+            }
+
+      public function myTestAddToLog()
+
+    {
+
+        \LogActivity::addToLog('My Testing Add To Log.');
+
+        dd('log insert successfully.');
+
     }
+     public function logActivity()
+{
+    \DB::table('logactivity')->insert([
+        'namaroute' => request()->route()->uri(),
+    ]);
+}
 }
